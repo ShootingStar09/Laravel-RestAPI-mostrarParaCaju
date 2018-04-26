@@ -19,9 +19,19 @@ class ProdutoResource extends JsonResource
 
             'descricao' => $this->detalhe,
 
-            'preco' => $this->armazem,
+            'preco' => $this->preco,
 
-            'desconto' => $this->desconto
+            'desconto' => $this->desconto,
+
+            'precoTotal' => round((1 - ($this->desconto/100)) * $this->desconto,2),
+
+            'armazem' => $this->armazem==0 ? 'estoque Vazio' : $this->armazem,
+
+            'rating' => $this->reviews->count() > 0 ? round($this->reviews->sum('estrela')/$this->reviews->count(),2) : 'sem rating',
+
+            'href' => [
+              'reviews' => route('reviews.index',$this->id)
+            ]
 
         ];
     }
