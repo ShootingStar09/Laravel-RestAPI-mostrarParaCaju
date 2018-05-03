@@ -7,6 +7,14 @@
     <title>CliOdonto</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+    <script language="JavaScript">
+    function pergunta(){
+       if (confirm('Tem certeza de que quer concluir a ação?')){
+          document.getElementById("formulario").submit();
+       }
+    }
+    </script>
 <link rel="stylesheet" href="{{ asset('css/style.css') }}" type="text/css">
 </head>
 <body>
@@ -31,7 +39,7 @@
 <div class="content">
           @yield('content')
     <div class="footer">
-        Simple MOOC - Uma simples plataforma de ensino a distância
+        CliOdonto - Uma simples plataforma Clinica
     </div>
 </div>
 <script src="http://yui.yahooapis.com/3.12.0/build/yui/yui-min.js"></script>

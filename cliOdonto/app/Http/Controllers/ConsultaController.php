@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Model\consulta;
 use Illuminate\Http\Request;
+use App\Model\Dentista;
 
 class ConsultaController extends Controller
 {
@@ -16,6 +17,14 @@ class ConsultaController extends Controller
     {
       $consultas = Consulta::all();
       return view('consulta.index',['consultas' => $consultas]);
+
+    }
+
+    public function dentistaIndex(Request $request)
+    {
+      $consultas = Consulta::all();
+      $dentistaConsultas = Dentista::find($request->idDentista);
+      return view('dentistas.consultasDentista',['consultas' => $consultas, 'dentistaConsultas' => $dentistaConsultas]);
 
     }
 

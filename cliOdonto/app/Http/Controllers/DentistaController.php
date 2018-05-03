@@ -39,7 +39,7 @@ class DentistaController extends Controller
 
         $dentista = new Dentista;
         $dentista->nome = $request->nome;
-        $dentista->CRO = $request->cro;
+        $dentista->CRO = $request->CRO;
         $dentista->especialidade = $request->especialidade;
         $dentista->curriculo = $request->curriculo;
         $dentista->urlFoto = "doctor-1149149_960_720.jpg";
@@ -90,14 +90,15 @@ class DentistaController extends Controller
     public function update(Request $request)
     {
       $dentista = Dentista::findOrFail($request->id);
-      $dentista->nome        = $request->nome;
+      $dentista->nome = $request->nome;
       $dentista->CRO = $request->CRO;
-      $dentista->especialidade    = $request->especialidade;
-      $dentista->curriculo       = $request->curriculo;
+      $dentista->especialidade = $request->especialidade;
+      $dentista->curriculo = $request->curriculo;
       $dentista->urlFoto = "doctor-1149149_960_720.jpg";
       $dentista->save();
       $dentistas = Dentista::all();
-      return view('dentistas.index', ['dentistas' => $dentistas])->with('message', 'Dentista Atualizado com sucesso');
+      //return redirect()->route('dentistas', ['dentistas' => $dentistas])->with('message', 'Dentista Atualizado com sucesso');
+      return redirect('dentistas',302,['dentistas' => $dentistas])->with('message', 'Dentista Atualizado com sucesso');
 ;
     }
 

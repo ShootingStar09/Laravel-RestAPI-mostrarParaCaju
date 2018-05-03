@@ -26,7 +26,7 @@
             <tbody>
                 @foreach($clientes as $cliente)
                 <tr>
-                    <td><img src= "{{ asset('imgs/'.$cliente->urlFoto) }}"></td>
+                    <td><img class='cliente'src= "{{ asset('imgs/'.$cliente->urlFoto) }}"></td>
                     <td>{{ $cliente->nome }}</td>
                     <td>{{ $cliente->cpf }}</td>
                     <td>{{ $cliente->idade }}</td>
@@ -36,11 +36,11 @@
                           <input name="id" type="hidden" value="{{ $cliente->id }}">
                           <button class="btn btn-warning btn-xs" type="submit">Editar</button>
                         </form>
-                        <form action="/deletarClienteBanco" method="post">
+                        <form action="/deletarClienteBanco" method="post" id="formulario">
                           {{ csrf_field() }}
                           <input name="_method" type="hidden" value="DELETE">
                           <input name="id" type="hidden" value="{{ $cliente->id }}">
-                          <button class="btn btn-danger btn-xs" type="submit">Deletar</button>
+                          <button class="btn btn-danger btn-xs" type="button" onclick="pergunta()">Deletar</button>
                         </form>
                     </td>
                 </tr>

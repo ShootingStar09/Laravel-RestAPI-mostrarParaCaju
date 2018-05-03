@@ -11,7 +11,7 @@
     <div class="pure-u-1">
         <h2>Informe os dados para serem alerados da Consulta</h2>
           <fieldset>
-            <form method="post" action="/atualizarConsultaBanco" class="pure-form pure-form-stacked">
+            <form id="formulario" method="post" action="/atualizarConsultaBanco" class="pure-form pure-form-stacked" >
 
                   {{ csrf_field() }}
 
@@ -47,21 +47,21 @@
 
                     <div class="pure-control-group">
                         <strong>Preco : </strong>
-                        <input class="form-control input-lg"  type="number" name="preco" value="" autofocus='true' placeholder="$20">
+                        <input class="form-control input-lg"  type="number" name="preco"   autofocus='true' placeholder="$20" value="{{ $consulta->preco }}">
                     </div>
 
                     <div class="pure-control-group">
                         <strong>Dia : </strong>
-                        <input class="form-control input-lg"  type="date" name="agendada_para" value="" autofocus='true' placeholder="dia">
+                        <input class="form-control input-lg"  type="date" name="agendada_para"  autofocus='true' placeholder="dia" value="{{ $consulta->agendada_para }}">
                     </div>
 
                     <div class="pure-control-group">
                         <strong>hora : </strong>
-                        <input class="form-control input-lg"  type="time" name="hora_agendada" value="" autofocus='true' placeholder="Hora">
+                        <input class="form-control input-lg"  type="time" name="hora_agendada"  autofocus='true' placeholder="Hora" value="{{ $consulta->hora_agendada }}">
                     </div>
 
                     <div class="pure-controls">
-                        <button type="submit" class="pure-button pure-button-primary">Alterar</button>
+                        <button type="button" class="pure-button pure-button-primary" onclick="pergunta()">Alterar</button>
                     </div>
         </form>
       </fieldset>

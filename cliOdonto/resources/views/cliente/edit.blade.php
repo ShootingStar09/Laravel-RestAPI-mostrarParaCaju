@@ -7,7 +7,7 @@
     <div class="pure-u-1">
         <h2>Informe os dados á Serem Alterados do Cliente</h2>
           <fieldset>
-            <form method="post" action="/atualizarClienteBanco" class="pure-form pure-form-stacked">
+            <form id="formulario" method="post" action="/atualizarClienteBanco" class="pure-form pure-form-stacked" >
 
                   {{ csrf_field() }}
 
@@ -15,21 +15,21 @@
 
                     <div class="pure-control-group">
                         <strong>Nome : </strong>
-                        <input class="form-control input-lg"  type="text" name="nome" value=""autofocus='true' placeholder="Nome">
+                        <input class="form-control input-lg"  type="text" name="nome" autofocus='true'  value="{{ $cliente->nome }}">
                     </div>
 
                     <div class="pure-control-group">
                         <strong>CPF : </strong>
-                        <input class="form-control input-lg"  type="text" name="cpf" autofocus='true' placeholder="CPF">
+                        <input class="form-control input-lg"  type="text" name="cpf" autofocus='true'  value="{{ $cliente->cpf }}">
                     </div>
 
                     <div class="pure-control-group">
                         <strong>idade : </strong>
-                        <input class="form-control input-lg"  type="number" name="idade" value="" autofocus='true' placeholder="20">
+                        <input class="form-control input-lg"  type="number" name="idade"  autofocus='true'  value="{{ $cliente->idade }}">
                     </div>
 
                     <div class="pure-controls">
-                        <button type="submit" class="pure-button pure-button-primary">Alterar</button>
+                        <button type="button" class="pure-button pure-button-primary" onclick="pergunta()">Alterar</button>
                     </div>
         </form>
       </fieldset>

@@ -1,4 +1,3 @@
-{{ Session::get('message') }}
     @extends('base')
 
     @section('content')
@@ -8,6 +7,7 @@
                 <h4 class="content-subhead">Dentistas da CliOdonto</h4>
                 <p>Abaixo a lista de dentistas disponíveis na plataforma</p>
                 <a href="cadastrarDentista"><button class="btn btn-info" type="submit">Cadastrar</button></a></td>
+                <h1>{{ Session::get('message') }}</h1>
             </div>
         </div>
     </div>
@@ -32,19 +32,23 @@
                 <h6 class="content-subhead"><a href="/dentistas/{{ $dentista->id }}" title="">{{ $dentista->especialidade }}</a></h6><br>
                 {{ $dentista->curriculo }}
             </div>
+            <form id="formulario" action="consulta" method="post" >
+              {{ csrf_field() }}
+              <input name="idDentista" type="hidden" value="{{ $dentista->id }}">
+              <button class="btn btn-warning" type="submit" >Consultas do Dentista</button>
+            </form>
         </div>
-          <form action="/deletarDentistaBanco" method="post">
+        <form action="/editarDentistaBanco" method="post">
+          {{ csrf_field() }}
+          <input name="id" type="hidden" value="{{ $dentista->id }}">
+          <button class="btn btn-info" type="submit">Editar</button>
+        </form>
+          <form id="formulario" action="/deletarDentistaBanco" method="post" >
             {{ csrf_field() }}
             <input name="_method" type="hidden" value="DELETE">
             <input name="id" type="hidden" value="{{ $dentista->id }}">
-            <button class="btn btn-danger" type="submit">Deletar</button>
+            <button class="btn btn-danger" type="button" onclick="pergunta()">Deletar</button>
           </form>
-          <form action="/editarDentistaBanco" method="post">
-            {{ csrf_field() }}
-            <input name="id" type="hidden" value="{{ $dentista->id }}">
-            <button class="btn btn-info" type="submit">Editar</button>
-          </form>
-
 
         <hr>
     </div>

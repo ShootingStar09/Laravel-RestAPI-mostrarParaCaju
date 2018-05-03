@@ -25,7 +25,9 @@ Route::post('entrar', 'Controller@postEntrar');
 Route::get('sair', 'Controller@getSair');
 Route::get('cadastrarUsuario', 'Controller@getInserir');
 Route::post('cadastrarUsuario', 'Controller@postInserir');
+
 Route::get('consulta', 'ConsultaController@index');
+Route::post('consulta', 'ConsultaController@dentistaIndex');
 Route::get('clientes', 'ClienteController@index');
 Route::get('dentistas', 'DentistaController@index');
 
