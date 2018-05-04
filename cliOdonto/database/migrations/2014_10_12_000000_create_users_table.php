@@ -17,11 +17,11 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('nome', 255);
             $table->string('email')->unique();
-            $table->string('senha', 60);
+            $table->string('password', 60);
             $table->enum('tipo', array('admin', 'dentista', 'cliente'));
             $table->rememberToken();
             $table->timestamps();
-            
+
         });
     }
 

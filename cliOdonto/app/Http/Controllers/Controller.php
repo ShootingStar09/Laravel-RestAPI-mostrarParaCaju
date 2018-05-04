@@ -31,8 +31,7 @@ class Controller extends BaseController
 
     public function getEntrar()
     {
-        $titulo = 'Entrar - Desenvolvendo com Laravel';
-        return view('contas.entrar', compact('titulo'));
+        return view('contas.entrar');
     }
 
     public function postEntrar(Request $request)
@@ -64,7 +63,6 @@ class Controller extends BaseController
 
     public function getInserir()
     {
-        $titulo = 'Inserir Usuário - Desenvolvendo com Laravel';
 
         $usuario = new User();
 
@@ -79,7 +77,7 @@ class Controller extends BaseController
             $usuario->email = $request->input('email');
             $usuario->tipo = $request->input('tipo');
 
-            $usuario->senha = Hash::make($request->input('senha'));
+            $usuario->password = Hash::make($request->input('senha'));
 
             $usuario->save();
 

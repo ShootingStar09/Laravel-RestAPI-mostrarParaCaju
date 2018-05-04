@@ -4,7 +4,7 @@
 <div class="pure-g-r content-ribbon">
     <div class="pure-u-1">
         <h2>Informe seus dados</h2>
-        <form class="pure-form pure-form-stacked" method="post" action="{{ url('entrar') }}">
+        <form class="pure-form pure-form-stacked" method="post" action="/entrar">
           {{ csrf_field() }}
             <fieldset>
 

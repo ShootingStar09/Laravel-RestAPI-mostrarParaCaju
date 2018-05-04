@@ -1,43 +1,39 @@
 <?php
 
-namespace App\Http\Controllers\admin;
+namespace App\Http\Controllers\Auth;
 
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB;
-use Auth;
-use Illuminate\Support\Facades\Input;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
-class LoginController extends Controller{
+class LoginController extends Controller
+{
+    /*
+    |--------------------------------------------------------------------------
+    | Login Controller
+    |--------------------------------------------------------------------------
+    |
+    | This controller handles authenticating users for the application and
+    | redirecting them to your home screen. The controller uses a trait
+    | to conveniently provide its functionality to your applications.
+    |
+    */
 
-    public function showLogin (){
+    use AuthenticatesUsers;
 
-        if (Auth::check()){
-            return Redirect::to('/admin');
-        }
-        return view('admin/login');
-    }
+    /**
+     * Where to redirect users after login.
+     *
+     * @var string
+     */
+    protected $redirectTo = '/home';
 
-    public function postLogin(){
-
-        $data = [
-            'email' => Input::get('email'),
-            'password' => Input::get('password')
-        ];
-
-        if (Auth::attempt($data, Input::get('remember')))
-        {
-
-            return Redirect::intended('home');
-        }
-
-        return Redirect::back()->with('error_message', 'Invalid data')->withInput();
-    }
-
-    public function logOut(){
-        Auth::logout();
-        return Redirect::to('admin/login')->with('error_message', 'Logged out correctly');
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
     }
 }
-
-?>
