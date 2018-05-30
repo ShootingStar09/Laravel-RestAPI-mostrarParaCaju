@@ -75,7 +75,7 @@ class Controller extends BaseController
 
             $usuario->nome = $request->input('nome');
             $usuario->email = $request->input('email');
-            $usuario->tipo = $request->input('tipo');
+            $usuario->tipo = "cliente";
 
             $usuario->password = Hash::make($request->input('senha'));
 
@@ -98,7 +98,7 @@ class Controller extends BaseController
 
                 $usuario->nome = $request->input('nome');
                 $usuario->email = $request->input('email');
-                $usuario->tipo = $request->input('tipo');
+                $usuario->tipo = "cliente";
 
                 if($request->input('senha'))
                 {

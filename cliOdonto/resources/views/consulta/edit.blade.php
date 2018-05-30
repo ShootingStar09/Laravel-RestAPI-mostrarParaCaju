@@ -21,7 +21,7 @@
                         <strong>Dentista : </strong>
 
                         <select name="dentista_id">
-                        @foreach($dentistas::all() as $dentista)
+                        @foreach($dentistas::all()->orderBy('name', 'desc') as $dentista)
                         <option value="{{ $dentista->id }}"> {{ $dentista->nome }}<option>
                         @endforeach
                         <select>

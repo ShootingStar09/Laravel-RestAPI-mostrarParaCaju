@@ -1,7 +1,7 @@
 {{ Session::get('message') }}
 
 @extends('base')
-@inject('dentista', 'App\Model\Dentista')
+@inject('dentistas', 'App\Model\Dentista')
 @inject('cliente', 'App\Model\cliente')
 
 @section('content')
@@ -17,7 +17,12 @@
                 <th></th>
                 <th></th>
                 <th></th>
-                <th></th>
+                <th>
+                  <form action="/pesquisarConsultaPorAtributo" method="post">
+                    {{ csrf_field() }}
+                    <button class="btn btn-danger btn-xs" type="submit">Deletar</button>
+                  </form>
+                </th>
                 <th><a class="btn btn-info btn-xs" href="cadastrarConsultaBanco">Cadastrar Consulta</a></th>
              </tr>
                 <tr>
@@ -32,15 +37,14 @@
                  </tr>
             </thead>
             <tbody>
-                @foreach($consultas as $consulta)
-
+                @foreach($cliente::find(Auth::user()->id)->consultas as $consulta)
                 <tr>
-                    <td>{{ $dentista::find($consulta->dentista_id)->nome }}</td>
+                    <td>{{ $dentistas::find($consulta->dentista_id)->nome }}</td>
                     <td>{{ $cliente::find($consulta->cliente_id)->nome }}</td>
                     <td>{{ $consulta->tipo }}</td>
                     <td>{{ $consulta->preco }}</td>
                     <td>{{ $consulta->estado }}</td>
-                    <td>{{ $consulta->agendada_para }}</td>
+                    <td>{{ Carbon\Carbon::parse($consulta->agendada_para)->format("d/m/Y") }}</td>
                     <td>{{ $consulta->hora_agendada }}</td>
                     <td class="actions">
                         <form action="/editarConsultaBanco" method="post">

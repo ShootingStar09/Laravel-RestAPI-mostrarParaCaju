@@ -8,24 +8,22 @@
           {{ csrf_field() }}
             <fieldset>
 
-              <div class="pure-control-group">
-                  <strong>Email : </strong>
-                  <input class="form-control input-lg"  type="text" name="email" autofocus='true' placeholder="E-mail">
-              </div>
+                <div class="pure-control-group">
+                    <strong>Email : </strong>
+                      <input class="form-control input-lg"  type="text" name="email" autofocus='true' placeholder="E-mail">
+                 </div>
 
-              <div class="pure-control-group">
-                  <strong>Senha : </strong>
-                  <input class="form-control input-lg"  type="password" name="senha" placeholder="Senha">
-              </div>
-
+                <div class="pure-control-group">
+                    <strong>Senha : </strong>
+                      <input class="form-control input-lg"  type="password" name="senha" placeholder="Senha">
+                </div>
+                
+                <div class="pure-control-group">
                   @if (Session::has('flash_error'))
                       <div class="alert alert-danger">E-mail ou senha inválidos.</div>
-                  @endif
-
-                    <label class="checkbox">
-                        <input type="checkbox" name="remember" value='remember'>Lembre-se de mim.
-                    </label>
-
+                  @endif   
+                    Lembre-se de mim.<input type="checkbox" name="remember" value='remember'>
+                </div>
                 <div class="pure-controls">
                     <button type="submit" class="pure-button pure-button-primary">Logar</button>
                 </div>

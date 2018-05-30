@@ -5,7 +5,6 @@
 <div class="pure-g-r content-ribbon">
     <div class="pure-u-1">
         <h2>Informe seus dados</h2>
-          <fieldset>
             <form method="post" action="/cadastrarUsuario" class="pure-form pure-form-stacked">
                   {{ csrf_field() }}
 
@@ -23,17 +22,8 @@
                         <strong>Senha : </strong>
                         <input class="form-control input-lg"  type="password" name="senha" value="{{ $usuario->senha }}"autofocus='true' placeholder="Senha">
                     </div>
-
-                    <div class="pure-control-group">
-                        <strong>Tipo : </strong>
-                        <select  name='tipo'>
-                            <option value="dentista">Dentista</option>
-                            <option value="cliente">Cliente</option>
-                        </select>
-                    </div>
             <input class="btn btn-lg btn-primary btn-block"  type="submit" name="Enviar" >
         </form>
-      </fieldset>
     </div>
 </div>
 @endsection

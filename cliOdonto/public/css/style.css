@@ -182,14 +182,3 @@ ul.breadcrumb li a {
     display: inline-block;
     padding: 0.3em 0.7em;
 }
-
-table.table-striped{
-  width: 1000px;
-  position: relative;
-  left: 250px;
-  top:40px;
-}
-
-img.cliente{
-  width: 100px;
-}

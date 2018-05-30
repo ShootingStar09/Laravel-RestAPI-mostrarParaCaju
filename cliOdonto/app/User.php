@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'nome', 'email', 'senha', 'tipo',
+        'nome', 'email', 'senha', 'tipo','userable_type','userable_id'
     ];
 
     /**
@@ -26,4 +26,9 @@ class User extends Authenticatable
     protected $hidden = [
         'senha', 'remember_token',
     ];
+
+  public function userable()
+  {
+      return $this->morphTo();
+  }
 }

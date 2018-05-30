@@ -20,7 +20,7 @@
 
                         <select name="dentista_id">
                         @foreach($dentistas::all() as $dentista)
-                        <option value="{{ $dentista->id }}"> {{ $dentista->nome }}<option>
+                        <option value="{{ $dentista->id }}"> {{ $dentista->nome }}</option>
                         @endforeach
                         <select>
                     </div>
@@ -29,7 +29,7 @@
                         <strong>Cliente : </strong>
                         <select name="cliente_id">
                         @foreach($clientes::all() as $cliente)
-                        <option value="{{ $cliente->id }}"> {{ $cliente->nome }}<option>
+                        <option value="{{ $cliente->id }}"> {{ $cliente->nome }}</option>
                         @endforeach
                         <select>
                     </div>

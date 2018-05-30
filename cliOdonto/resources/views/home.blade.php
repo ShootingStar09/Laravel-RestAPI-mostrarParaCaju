@@ -1,9 +1,10 @@
 @extends('base')
 
 @section('content')
+
     <div class="splash">
         <div class="pure-g-r">
-            <div class="pure-u-1">
+            <div class="pure-uw">
                 <div class="l-box splash-text">
                     <h1 class="splash-head">
                         Uma Simples Plataforma para facilitar o intermedio cliente/Dentista
@@ -64,7 +65,7 @@
         </div>
         <div class="pure-u-1-3">
             <div class="l-box">
-                <img src="{{ asset('imgs/pretty-2829469_960_720.jpg') }}"
+                <img src="{{ asset('imgs/dentist-676421_960_720.jpg') }}"
                      alt="Questionarios">
             </div>
         </div>
@@ -72,8 +73,7 @@
     <div class="pure-g-r content-ribbon">
         <div class="pure-u-1-3">
             <div class="l-box">
-                <img  src="{{ asset('imgs/kenya-3009299_960_720.jpg') }}"
-                     alt="Mural de Avisos">
+                <img  src="{{ asset('imgs/kenya-3009299_960_720.jpg') }}" alt="Mural de Avisos">
             </div>
         </div>
         <div class="pure-u-2-3">
@@ -81,9 +81,10 @@
                 <h4 class="content-subhead">Mural de Avisos</h4>
                 <h3>Envie anúncios diretamente para os Clientes</h3>
                 <p>
-                    Organize os avisos da sua CliniOdonto de forma fácil e simples.
+                    Organize os avisos da sua ClinOdonto de forma fácil e simples.
                 </p>
             </div>
         </div>
     </div>
+
 @endsection

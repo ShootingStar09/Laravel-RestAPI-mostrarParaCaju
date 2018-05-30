@@ -22,9 +22,8 @@ class ConsultaController extends Controller
 
     public function dentistaIndex(Request $request)
     {
-      $consultas = Consulta::all();
-      $dentistaConsultas = Dentista::find($request->idDentista);
-      return view('dentistas.consultasDentista',['consultas' => $consultas, 'dentistaConsultas' => $dentistaConsultas]);
+      $consultas = Dentista::find($request->idDentista)->consulta;
+      return view('consulta.index',['consultas' => $consultas]);
 
     }
 
